@@ -121,35 +121,35 @@ export default function Motivation() {
                         </div>
 
                         <div className="text-sm text-gray-600 mb-6">
-                            <p><strong>Betreff: {motivation.subject}</strong></p>
+                            <p><strong>{motivation.subject}</strong></p>
                         </div>
                     </div>
 
                     {/* <!-- Letter Content --> */}
                     <div className="text-gray-700 leading-tight space-y-4">
-                        <p>{motivation.content.introduction}</p>
+                        <p className='hyphens-auto'>{motivation.content.introduction}</p>
 
-                        <p>{motivation.content.opening}</p>
+                        <p className='hyphens-auto'>{motivation.content.opening}</p>
 
                         <div className="space-y-3">
                             {motivation.content.motivation.map((motivationText: string, index: number) => (
-                                <p key={`motivation-${index}`}>{motivationText}</p>
+                                <p key={`motivation-${index}`} className='hyphens-auto'>{motivationText}</p>
                             ))}
                         </div>
 
                         <div className="space-y-3">
                             {motivation.content.qualifications.map((qualification: string, index: number) => (
-                                <p key={`qualification-${index}`}>{qualification}</p>
+                                <p key={`qualification-${index}`} className='hyphens-auto'>{qualification}</p>
                             ))}
                         </div>
 
                         <div className="space-y-3">
                             {motivation.content.fit.map((fit: string, index: number) => (
-                                <p key={`fit-${index}`}>{fit}</p>
+                                <p key={`fit-${index}`} className='hyphens-auto'>{fit}</p>
                             ))}
                         </div>
 
-                        <p>{motivation.content.closing}</p>
+                        <p className='hyphens-auto'>{motivation.content.closing}</p>
 
                         <div className="mt-8">
                             <p>{motivation.content.signature}</p>

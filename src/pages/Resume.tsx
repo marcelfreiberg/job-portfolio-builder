@@ -116,7 +116,7 @@ export default function Resume() {
                                     </div>
                                     <ul className="list-disc list-outside text-gray-700 text-sm leading-relaxed ml-4">
                                         {education.description.map((description, descIndex) => (
-                                            <li key={`education-${index}-desc-${descIndex}`} className="pl-1">{description}</li>
+                                            <li key={`education-${index}-desc-${descIndex}`} className="pl-1 hyphens-auto">{description}</li>
                                         ))}
                                     </ul>
                                 </div>
@@ -140,7 +140,7 @@ export default function Resume() {
                                     </div>
                                     <ul className="list-disc list-outside text-gray-700 text-sm leading-relaxed ml-4">
                                         {experience.description.map((description, descIndex) => (
-                                            <li key={`experience-${index}-desc-${descIndex}`} className="pl-1">{description}</li>
+                                            <li key={`experience-${index}-desc-${descIndex}`} className="pl-1 hyphens-auto">{description}</li>
                                         ))}
                                     </ul>
                                 </div>
@@ -153,7 +153,7 @@ export default function Resume() {
                         {/* <!-- Personal Details --> */}
                         <section className="mb-4 border-b border-gray-300 pb-2">
                             <h3 className="text-xl text-gray-800 mb-2 pb-1">Persönliche Daten</h3>
-                            <div className="space-y-2 text-sm">
+                            <div className="space-y-3 text-sm">
                                 <div>
                                     <span className="text-gray-400 block text-xs">Geburtsdatum</span>
                                     <span className="text-gray-700 text-xs">{personal.birthDate}</span>
@@ -168,7 +168,7 @@ export default function Resume() {
                         {/* <!-- Technical Skills --> */}
                         <section className="mb-4 border-b border-gray-300 pb-2">
                             <h3 className="text-xl text-gray-800 mb-2 pb-1">Kenntnisse und Fähigkeiten</h3>
-                            <div className="space-y-2 text-sm">
+                            <div className="space-y-3 text-sm">
                                 <div>
                                     <span className="text-gray-400 font-medium block text-xs">Programming:</span>
                                     <span className="text-gray-700 text-xs">{resumeData.skills.programmingLanguages}</span>
