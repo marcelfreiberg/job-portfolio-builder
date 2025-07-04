@@ -1,0 +1,70 @@
+{
+  "personal": {
+    "name": "Your Name",
+    "email": "your.email@example.com",
+    "phone": "+1 234 567 8900",
+    "address": "Your Address, City, State/Province, Country",
+    "birthDate": "Your Birth Date",
+    "birthPlace": "Your Birth Place"
+  },
+  "resume": {
+    "education": [
+      {
+        "degree": "M.Sc., Your Field",
+        "institution": "Your University",
+        "period": "Start Date - End Date",
+        "description": [
+          "Focus on relevant areas",
+          "Thesis: \"Your Thesis Title\" - Brief description of your research"
+        ]
+      },
+      {
+        "degree": "B.Sc./B.Eng., Your Field",
+        "institution": "Your University",
+        "period": "Start Date - End Date",
+        "description": [
+          "Focus on relevant areas",
+          "Bachelor thesis: \"Your Bachelor Thesis Title\""
+        ]
+      }
+    ],
+    "experience": [
+      {
+        "position": "Your Position",
+        "company": "Company Name, Location",
+        "period": "Start Date - End Date",
+        "description": [
+          "Key responsibility or achievement",
+          "Another key responsibility or achievement",
+          "Technical skills or tools used"
+        ]
+      },
+      {
+        "position": "Previous Position",
+        "company": "Previous Company Name",
+        "period": "Start Date - End Date",
+        "description": [
+          "Key responsibility or achievement",
+          "Another key responsibility or achievement"
+        ]
+      }
+    ],
+    "skills": {
+      "programmingLanguages": "Python, JavaScript/TypeScript, SQL, Other Languages",
+      "frameworks": "React, Node.js, Django, Other Frameworks",
+      "tools": "Docker, Git, AWS, Other Tools",
+      "specializations": "Machine Learning, Data Science, Web Development, Other Areas"
+    },
+    "languages": [
+      {
+        "language": "English",
+        "level": "Native/Fluent/Proficient"
+      },
+      {
+        "language": "Other Language",
+        "level": "Proficient",
+        "note": "(spoken and written)"
+      }
+    ]
+  }
+} 

@@ -1,13 +1,12 @@
 # Personal data files
-src/data/
+src/data/*
 !src/data/personal.template.json
+!src/data/jobs/
+src/data/jobs/*
 !src/data/jobs/example_*.json
-!src/data/jobs/template_*.json
 
 src/assets/
 !src/assets/placeholder-*
-!src/assets/template-*
-!src/assets/example-*
 
 # Dependencies
 node_modules/
