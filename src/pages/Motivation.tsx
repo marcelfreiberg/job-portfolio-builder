@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import personalData from '../data/personal.json';
 import { JobData } from '../types/job';
 import { PersonalData } from '../types/personal';
-import profilePhoto from '../assets/SKP_0981-quadrat.jpg';
+import Header from '../components/Header';
 
 export default function Motivation() {
     const { company } = useParams<{ company: string }>();
@@ -73,33 +73,7 @@ export default function Motivation() {
             </div>
 
             <div className="cv-container">
-                {/* <!-- Header Section --> */}
-                <header className="bg-[rgb(50,56,68)]">
-                    <div className="flex items-start gap-6">
-                        <img src={profilePhoto} alt={personal.name} className="w-40 h-40" />
-
-                        {/* <!-- Text Content --> */}
-                        <div className="flex-1 mt-6 mx-4">
-                            <h1 className="text-3xl text-white mb-2">{personal.name}</h1>
-                            <h2 className="text-lg text-gray-400 mb-4">{title}</h2>
-
-                            <div className="flex flex-wrap gap-4 text-xs text-gray-400">
-                                <div className="flex items-center gap-1">
-                                    <i className="fas fa-envelope"></i>
-                                    <span>{personal.email}</span>
-                                </div>
-                                <div className="flex items-center gap-1">
-                                    <i className="fas fa-phone"></i>
-                                    <span>{personal.phone}</span>
-                                </div>
-                                <div className="flex items-center gap-1">
-                                    <i className="fas fa-map-marker-alt"></i>
-                                    <span>{personal.address}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </header>
+                <Header personal={personal} title={title} />
 
                 {/* <!-- Main Content --> */}
                 <div className="p-8">

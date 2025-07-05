@@ -15,5 +15,5 @@ pnpm dev
 
 1. Copy `src/data/personal.template.json` to `src/data/personal.json`
 2. Edit `src/data/personal.json` with your information
-3. Add your photo to `src/assets/`
+3. Add your profile photo as `src/assets/profile-photo-square.jpg`
 4. Create company files in `src/data/jobs/` (see `example_company.json`)
