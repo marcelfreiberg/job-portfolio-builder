@@ -125,7 +125,7 @@ export default function Resume() {
 
                         {/* <!-- Experience --> */}
                         <section className="mb-4">
-                            <h3 className="text-xl text-gray-800">Berufserfahrung</h3>
+                            <h3 className="text-xl text-gray-800 mb-2">Berufserfahrung</h3>
 
                             {resumeData.experience.map((experience, index) => (
                                 <div key={`experience-${index}`} className="mb-2">
