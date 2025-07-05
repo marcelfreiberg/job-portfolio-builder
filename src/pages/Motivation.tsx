@@ -108,8 +108,10 @@ export default function Motivation() {
 
                         <div className="text-sm text-gray-600 mb-4">
                             <p>{companyData.name}</p>
-                            <p>{companyData.department}</p>
-                            <p>{companyData.address}</p>
+                            <p>{companyData.plz} {companyData.city}</p>
+                            <p>{companyData.state}</p>
+                            <p>{companyData.street}</p>
+                            {companyData.country && <p>{companyData.country}</p>}
                         </div>
 
                         <div className="text-sm text-gray-600 mb-4 text-right">
@@ -131,23 +133,29 @@ export default function Motivation() {
 
                         <p className='hyphens-auto'>{motivation.content.opening}</p>
 
-                        <div className="space-y-3">
-                            {motivation.content.motivation.map((motivationText: string, index: number) => (
-                                <p key={`motivation-${index}`} className='hyphens-auto'>{motivationText}</p>
-                            ))}
-                        </div>
+                        {motivation.content.motivation && (
+                            <div className="space-y-3">
+                                {motivation.content.motivation.map((motivationText: string, index: number) => (
+                                    <p key={`motivation-${index}`} className='hyphens-auto'>{motivationText}</p>
+                                ))}
+                            </div>
+                        )}
 
-                        <div className="space-y-3">
-                            {motivation.content.qualifications.map((qualification: string, index: number) => (
-                                <p key={`qualification-${index}`} className='hyphens-auto'>{qualification}</p>
-                            ))}
-                        </div>
+                        {motivation.content.qualifications && (
+                            <div className="space-y-3">
+                                {motivation.content.qualifications.map((qualification: string, index: number) => (
+                                    <p key={`qualification-${index}`} className='hyphens-auto'>{qualification}</p>
+                                ))}
+                            </div>
+                        )}
 
-                        <div className="space-y-3">
-                            {motivation.content.fit.map((fit: string, index: number) => (
-                                <p key={`fit-${index}`} className='hyphens-auto'>{fit}</p>
-                            ))}
-                        </div>
+                        {motivation.content.fit && (
+                            <div className="space-y-3">
+                                {motivation.content.fit.map((fit: string, index: number) => (
+                                    <p key={`fit-${index}`} className='hyphens-auto'>{fit}</p>
+                                ))}
+                            </div>
+                        )}
 
                         <p className='hyphens-auto'>{motivation.content.closing}</p>
 
