@@ -8,7 +8,11 @@ export interface JobData {
     company: {
         name: string;
         department: string;
-        address: string;
+        street: string;
+        plz: string;
+        city: string;
+        state: string;
+        country?: string;
     };
     title: string;
     resume?: {
