@@ -75,9 +75,9 @@ export default function Home() {
                     </h2>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-4">
                     {companies.map((company) => (
-                        <div key={company.slug} className="bg-white rounded-lg shadow-md p-6">
+                        <div key={company.slug} className="bg-white rounded-lg shadow-md p-4">
                             <div className="mb-4">
                                 <h3 className="text-2xl font-bold text-gray-800 mb-2">
                                     {company.name}
