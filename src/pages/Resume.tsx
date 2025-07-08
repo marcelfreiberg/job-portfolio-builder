@@ -12,6 +12,35 @@ export default function Resume() {
     const [error, setError] = useState<string | null>(null);
     const { personal, resume } = personalData as PersonalData;
     
+    const translations = {
+        de: {
+            education: "Ausbildung",
+            experience: "Berufserfahrung",
+            personalDetails: "Persönliche Daten",
+            skillsAndAbilities: "Kenntnisse und Fähigkeiten",
+            languages: "Sprachen",
+            birthDate: "Geburtsdatum",
+            birthPlace: "Geburtsort",
+            programming: "Programming",
+            mlAi: "ML & AI",
+            systemIntegration: "System Integration",
+            projectLeadership: "Project Leadership"
+        },
+        en: {
+            education: "Education",
+            experience: "Professional Experience",
+            personalDetails: "Personal Details",
+            skillsAndAbilities: "Skills and Abilities",
+            languages: "Languages",
+            birthDate: "Date of Birth",
+            birthPlace: "Place of Birth",
+            programming: "Programming",
+            mlAi: "ML & AI",
+            systemIntegration: "System Integration",
+            projectLeadership: "Project Leadership"
+        }
+    };
+    
     useEffect(() => {
         if (!company) {
             setError('No company specified');
@@ -53,9 +82,11 @@ export default function Resume() {
         );
     }
 
-    // Use job-specific resume data if available, otherwise fall back to personal data
     const resumeData = jobData.resume || resume;
     const title = jobData.title;
+    
+    const currentLanguage = jobData.language || 'de';
+    const t = translations[currentLanguage as keyof typeof translations] || translations.de;
 
     return (
         <>
@@ -75,7 +106,7 @@ export default function Resume() {
                     <div className="flex-1 pr-4 border-r border-gray-300">
                         {/* <!-- Education --> */}
                         <section className="mb-4 border-b border-gray-300 pb-1">
-                            <h3 className="text-xl text-gray-800 mb-2">Ausbildung</h3>
+                            <h3 className="text-xl text-gray-800 mb-2">{t.education}</h3>
 
                             {resumeData.education.map((education, index) => (
                                 <div key={`education-${index}`} className="mb-2">
@@ -99,7 +130,7 @@ export default function Resume() {
 
                         {/* <!-- Experience --> */}
                         <section className="mb-4">
-                            <h3 className="text-xl text-gray-800 mb-2">Berufserfahrung</h3>
+                            <h3 className="text-xl text-gray-800 mb-2">{t.experience}</h3>
 
                             {resumeData.experience.map((experience, index) => (
                                 <div key={`experience-${index}`} className="mb-2">
@@ -126,14 +157,14 @@ export default function Resume() {
                     <div className="w-40 pl-2">
                         {/* <!-- Personal Details --> */}
                         <section className="mb-4 border-b border-gray-300 pb-2">
-                            <h3 className="text-xl text-gray-800 mb-2 pb-1">Persönliche Daten</h3>
+                            <h3 className="text-xl text-gray-800 mb-2 pb-1">{t.personalDetails}</h3>
                             <div className="space-y-3 text-sm">
                                 <div>
-                                    <span className="text-gray-400 block text-xs">Geburtsdatum</span>
+                                    <span className="text-gray-400 block text-xs">{t.birthDate}</span>
                                     <span className="text-gray-700 text-xs">{personal.birthDate}</span>
                                 </div>
                                 <div>
-                                    <span className="text-gray-400 block text-xs">Geburtsort</span>
+                                    <span className="text-gray-400 block text-xs">{t.birthPlace}</span>
                                     <span className="text-gray-700 text-xs">{personal.birthPlace}</span>
                                 </div>
                             </div>
@@ -141,22 +172,22 @@ export default function Resume() {
 
                         {/* <!-- Technical Skills --> */}
                         <section className="mb-4 border-b border-gray-300 pb-2">
-                            <h3 className="text-xl text-gray-800 mb-2 pb-1">Kenntnisse und Fähigkeiten</h3>
+                            <h3 className="text-xl text-gray-800 mb-2 pb-1">{t.skillsAndAbilities}</h3>
                             <div className="space-y-3 text-sm">
                                 <div>
-                                    <span className="text-gray-400 font-medium block text-xs">Programming:</span>
+                                    <span className="text-gray-400 font-medium block text-xs">{t.programming}:</span>
                                     <span className="text-gray-700 text-xs">{resumeData.skills.programmingLanguages}</span>
                                 </div>
                                 <div>
-                                    <span className="text-gray-400 font-medium block text-xs">ML & AI:</span>
+                                    <span className="text-gray-400 font-medium block text-xs">{t.mlAi}:</span>
                                     <span className="text-gray-700 text-xs">{resumeData.skills.machineLearning}</span>
                                 </div>
                                 <div>
-                                    <span className="text-gray-400 font-medium block text-xs">System Integration:</span>
+                                    <span className="text-gray-400 font-medium block text-xs">{t.systemIntegration}:</span>
                                     <span className="text-gray-700 text-xs">{resumeData.skills.systemIntegration}</span>
                                 </div>
                                 <div>
-                                    <span className="text-gray-400 font-medium block text-xs">Project Leadership:</span>
+                                    <span className="text-gray-400 font-medium block text-xs">{t.projectLeadership}:</span>
                                     <span className="text-gray-700 text-xs">{resumeData.skills.projectLeadership}</span>
                                 </div>
                             </div>
@@ -164,7 +195,7 @@ export default function Resume() {
 
                         {/* <!-- Languages --> */}
                         <section className="mb-4">
-                            <h3 className="text-xl text-gray-800 mb-2 pb-1">Sprachen</h3>
+                            <h3 className="text-xl text-gray-800 mb-2 pb-1">{t.languages}</h3>
                             <div className="text-sm space-y-1">
                                 {resumeData.languages.map((language, index) => (
                                     <div key={`language-${index}`}>

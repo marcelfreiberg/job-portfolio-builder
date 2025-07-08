@@ -5,6 +5,7 @@ export interface Company {
 }
 
 export interface JobData {
+    language?: string;
     company: {
         name: string;
         department: string;
