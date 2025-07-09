@@ -1,50 +1,31 @@
 import { Link } from 'react-router';
 import { useState, useEffect } from 'react';
-import { Company } from '../types/job';
+import { JobData } from '../types/job';
+
+type CompanyWithSlug = JobData & { slug: string };
 
 export default function Home() {
-    const [companies, setCompanies] = useState<Company[]>([]);
+    const [companies, setCompanies] = useState<CompanyWithSlug[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         fetch('/api/companies')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to fetch companies');
-                }
-                return response.json();
-            })
-            .then(async (companyNames: string[]) => {
-                // Fetch each company's data to get the title
-                const companiesData = await Promise.all(
-                    companyNames.map(async (name) => {
-                        try {
-                            const response = await fetch(`/data/jobs/${name}.json`);
-                            const data = await response.json();
-                            return {
-                                name: data.company.name,
-                                title: data.title,
-                                slug: name
-                            };
-                        } catch (err) {
-                            console.error(`Failed to load ${name}:`, err);
-                            return {
-                                name: name.charAt(0).toUpperCase() + name.slice(1),
-                                title: 'Application',
-                                slug: name
-                            };
-                        }
-                    })
-                );
-                setCompanies(companiesData);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error('Error fetching companies:', err);
-                setError(err.message);
-                setLoading(false);
-            });
+            .then(response => response.json())
+            .then((companyNames: string[]) => 
+                Promise.all(
+                    companyNames
+                        .filter(name => !name.startsWith('example_'))
+                        .map(async (slug) => {
+                            const response = await fetch(`/data/jobs/${slug}.json`);
+                            const data: JobData = await response.json();
+                            return { ...data, slug };
+                        })
+                )
+            )
+            .then(setCompanies)
+            .catch(err => setError(err.message))
+            .finally(() => setLoading(false));
     }, []);
 
     if (loading) {
@@ -76,13 +57,13 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-4">
-                    {companies.map((company) => (
+                    {[...companies].reverse().map((company) => (
                         <div key={company.slug} className="bg-white rounded-lg shadow-md p-4">
                             <div className="mb-4">
                                 <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                                    {company.name}
+                                    {company.company.name}
                                 </h3>
-                                <p className="text-gray-600">{company.title}</p>
+                                <p className="text-gray-600">{company.date} - {company.title}</p>
                             </div>
                             
                             <div className="flex gap-4">

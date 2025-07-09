@@ -1,11 +1,6 @@
-export interface Company {
-    name: string;
-    title: string;
-    slug: string;
-}
-
 export interface JobData {
     language?: string;
+    date: string;
     company: {
         name: string;
         department: string;
