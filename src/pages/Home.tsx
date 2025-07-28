@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import { useState, useEffect } from 'react';
 import { JobData } from '../types/job';
+import personalData from '../data/personal.json';
 
 type CompanyWithSlug = JobData & { slug: string };
 
@@ -8,6 +9,10 @@ export default function Home() {
     const [companies, setCompanies] = useState<CompanyWithSlug[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        document.title = `${personalData.personal.name} - Portfolio`;
+    }, []);
 
     useEffect(() => {
         fetch('/api/companies')

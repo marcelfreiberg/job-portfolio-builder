@@ -13,6 +13,10 @@ export default function Motivation() {
     const { personal } = personalData as PersonalData;
 
     useEffect(() => {
+        document.title = `${personal.name} - Cover Letter`;
+    }, []);
+
+    useEffect(() => {
         if (!company) {
             setError('No company specified');
             setLoading(false);

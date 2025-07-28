@@ -12,6 +12,10 @@ export default function Resume() {
     const [error, setError] = useState<string | null>(null);
     const { personal, resume } = personalData as PersonalData;
     
+    useEffect(() => {
+        document.title = `${personal.name} - Resume`;
+    }, []);
+
     const header_translations = {
         de: {
             education: "Ausbildung",
