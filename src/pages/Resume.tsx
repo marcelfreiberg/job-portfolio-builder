@@ -12,7 +12,7 @@ export default function Resume() {
     const [error, setError] = useState<string | null>(null);
     const { personal, resume } = personalData as PersonalData;
     
-    const translations = {
+    const header_translations = {
         de: {
             education: "Ausbildung",
             experience: "Berufserfahrung",
@@ -76,11 +76,7 @@ export default function Resume() {
         );
     }
 
-    const resumeData = jobData.resume || resume;
-    const title = jobData.title;
-    
-    const currentLanguage = jobData.language || 'de';
-    const t = translations[currentLanguage as keyof typeof translations] || translations.de;
+    const header_t = header_translations[jobData.language as keyof typeof header_translations] || header_translations.en;
 
     return (
         <>
@@ -92,7 +88,7 @@ export default function Resume() {
             </div>
 
             <div className="cv-container bg-white mx-auto shadow-md">
-                <Header personal={personal} title={title} />
+                <Header personal={personal} title={jobData.title} />
 
                 {/* <!-- Main Content Split --> */}
                 <div className="flex gap-4 px-6 py-4">
@@ -100,9 +96,9 @@ export default function Resume() {
                     <div className="flex-1 pr-4 border-r border-gray-300">
                         {/* <!-- Education --> */}
                         <section className="mb-4 border-b border-gray-300 pb-1">
-                            <h3 className="text-xl text-gray-800 mb-2">{t.education}</h3>
+                            <h3 className="text-xl text-gray-800 mb-2">{header_t.education}</h3>
 
-                            {resumeData.education.map((education, index) => (
+                            {(jobData.resume?.education || resume.education).map((education, index) => (
                                 <div key={`education-${index}`} className="mb-2">
                                     <div className="flex justify-between items-start mb-1">
                                         <div>
@@ -124,9 +120,9 @@ export default function Resume() {
 
                         {/* <!-- Experience --> */}
                         <section className="mb-4">
-                            <h3 className="text-xl text-gray-800 mb-2">{t.experience}</h3>
+                            <h3 className="text-xl text-gray-800 mb-2">{header_t.experience}</h3>
 
-                            {resumeData.experience.map((experience, index) => (
+                            {(jobData.resume?.experience || resume.experience).map((experience, index) => (
                                 <div key={`experience-${index}`} className="mb-2">
                                     <div className="flex justify-between items-start mb-1">
                                         <div>
@@ -151,32 +147,32 @@ export default function Resume() {
                     <div className="w-40 pl-2">
                         {/* <!-- Technical Skills --> */}
                         <section className="mb-4 border-b border-gray-300 pb-2">
-                            <h3 className="text-xl text-gray-800 mb-2 pb-1">{t.skillsAndAbilities}</h3>
+                            <h3 className="text-xl text-gray-800 mb-2 pb-1">{header_t.skillsAndAbilities}</h3>
                             <div className="space-y-3 text-sm">
                                 <div>
-                                    <span className="text-gray-400 font-medium block text-xs">{t.programming}:</span>
-                                    <span className="text-gray-700 text-xs">{resumeData.skills.programmingLanguages}</span>
+                                    <span className="text-gray-400 font-medium block text-xs">{header_t.programming}:</span>
+                                    <span className="text-gray-700 text-xs">{(jobData.resume?.skills || resume.skills).programmingLanguages}</span>
                                 </div>
                                 <div>
-                                    <span className="text-gray-400 font-medium block text-xs">{t.mlAi}:</span>
-                                    <span className="text-gray-700 text-xs">{resumeData.skills.machineLearning}</span>
+                                    <span className="text-gray-400 font-medium block text-xs">{header_t.mlAi}:</span>
+                                    <span className="text-gray-700 text-xs">{(jobData.resume?.skills || resume.skills).machineLearning}</span>
                                 </div>
                                 <div>
-                                    <span className="text-gray-400 font-medium block text-xs">{t.systemIntegration}:</span>
-                                    <span className="text-gray-700 text-xs">{resumeData.skills.systemIntegration}</span>
+                                    <span className="text-gray-400 font-medium block text-xs">{header_t.systemIntegration}:</span>
+                                    <span className="text-gray-700 text-xs">{(jobData.resume?.skills || resume.skills).systemIntegration}</span>
                                 </div>
                                 <div>
-                                    <span className="text-gray-400 font-medium block text-xs">{t.projectLeadership}:</span>
-                                    <span className="text-gray-700 text-xs">{resumeData.skills.projectLeadership}</span>
+                                    <span className="text-gray-400 font-medium block text-xs">{header_t.projectLeadership}:</span>
+                                    <span className="text-gray-700 text-xs">{(jobData.resume?.skills || resume.skills).projectLeadership}</span>
                                 </div>
                             </div>
                         </section>
 
                         {/* <!-- Languages --> */}
                         <section className="mb-4">
-                            <h3 className="text-xl text-gray-800 mb-2 pb-1">{t.languages}</h3>
+                            <h3 className="text-xl text-gray-800 mb-2 pb-1">{header_t.languages}</h3>
                             <div className="text-sm space-y-1">
-                                {resumeData.languages.map((language, index) => (
+                                {(jobData.resume?.languages || resume.languages).map((language, index) => (
                                     <div key={`language-${index}`}>
                                         <span className="text-gray-800 font-medium text-xs">{language.level} in {language.language}</span>
                                         {language.note && <span className="text-gray-700 text-xs block">{language.note}</span>}
