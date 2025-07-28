@@ -16,6 +16,10 @@
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.6",
+    "@fortawesome/fontawesome-svg-core": "^7.0.0",
+    "@fortawesome/free-brands-svg-icons": "^7.0.0",
+    "@fortawesome/free-solid-svg-icons": "^7.0.0",
+    "@fortawesome/react-fontawesome": "^0.2.3",
     "@tailwindcss/vite": "^4.1.11",
     "handlebars": "^4.7.8",
     "react": "^19.1.0",

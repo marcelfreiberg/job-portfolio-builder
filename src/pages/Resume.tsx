@@ -16,11 +16,8 @@ export default function Resume() {
         de: {
             education: "Ausbildung",
             experience: "Berufserfahrung",
-            personalDetails: "Persönliche Daten",
             skillsAndAbilities: "Kenntnisse und Fähigkeiten",
             languages: "Sprachen",
-            birthDate: "Geburtsdatum",
-            birthPlace: "Geburtsort",
             programming: "Programming",
             mlAi: "ML & AI",
             systemIntegration: "System Integration",
@@ -29,11 +26,8 @@ export default function Resume() {
         en: {
             education: "Education",
             experience: "Professional Experience",
-            personalDetails: "Personal Details",
             skillsAndAbilities: "Skills and Abilities",
             languages: "Languages",
-            birthDate: "Date of Birth",
-            birthPlace: "Place of Birth",
             programming: "Programming",
             mlAi: "ML & AI",
             systemIntegration: "System Integration",
@@ -155,21 +149,6 @@ export default function Resume() {
 
                     {/* <!-- Right Column --> */}
                     <div className="w-40 pl-2">
-                        {/* <!-- Personal Details --> */}
-                        <section className="mb-4 border-b border-gray-300 pb-2">
-                            <h3 className="text-xl text-gray-800 mb-2 pb-1">{t.personalDetails}</h3>
-                            <div className="space-y-3 text-sm">
-                                <div>
-                                    <span className="text-gray-400 block text-xs">{t.birthDate}</span>
-                                    <span className="text-gray-700 text-xs">{personal.birthDate}</span>
-                                </div>
-                                <div>
-                                    <span className="text-gray-400 block text-xs">{t.birthPlace}</span>
-                                    <span className="text-gray-700 text-xs">{personal.birthPlace}</span>
-                                </div>
-                            </div>
-                        </section>
-
                         {/* <!-- Technical Skills --> */}
                         <section className="mb-4 border-b border-gray-300 pb-2">
                             <h3 className="text-xl text-gray-800 mb-2 pb-1">{t.skillsAndAbilities}</h3>

@@ -3,10 +3,8 @@ export interface PersonalData {
         name: string;
         email: string;
         phone: string;
-        address: string;
-        photo: string;
-        birthDate: string;
-        birthPlace: string;
+        city: string;
+        linkedin: string;
     };
     resume: {
         education: Array<{

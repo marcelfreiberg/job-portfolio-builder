@@ -1,5 +1,8 @@
 import { PersonalData } from '../types/personal';
 import profilePhoto from '../assets/profile-photo-square.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 interface HeaderProps {
     personal: PersonalData['personal'];
@@ -23,20 +26,24 @@ export default function Header({ personal, title }: HeaderProps) {
 
                     <div className={`flex flex-wrap gap-3 text-xs text-gray-400`}>
                         <div className="flex items-center gap-1">
-                            <i className="fas fa-envelope"></i>
+                            <FontAwesomeIcon icon={faEnvelope} />
                             <span>{personal.email}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                            <i className="fas fa-phone"></i>
+                            <FontAwesomeIcon icon={faPhone} />
                             <span>{personal.phone}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                            <i className="fas fa-map-marker-alt"></i>
-                            <span>{personal.address}</span>
+                            <FontAwesomeIcon icon={faMapMarkerAlt} />
+                            <span>{personal.city}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                            <FontAwesomeIcon icon={faLinkedin} />
+                            <span>{personal.linkedin}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
     );
-} 
+}

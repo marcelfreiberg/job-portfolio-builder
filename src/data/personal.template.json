@@ -3,9 +3,8 @@
     "name": "Your Name",
     "email": "your.email@example.com",
     "phone": "+1 234 567 8900",
-    "address": "Your Address, City, State/Province, Country",
-    "birthDate": "Your Birth Date",
-    "birthPlace": "Your Birth Place"
+    "city": "Your City",
+    "linkedin": "https://www.linkedin.com/in/<your-linkedin-profile-url>"
   },
   "resume": {
     "education": [
