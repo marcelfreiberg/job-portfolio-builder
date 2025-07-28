@@ -61,24 +61,28 @@ export default function Home() {
                         <div key={company.slug} className="bg-white rounded-lg shadow-md p-4">
                             <div className="mb-4">
                                 <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                                    {company.company.name}
+                                    {company.company?.name || 'Unknown Company'}
                                 </h3>
                                 <p className="text-gray-600">{company.date} - {company.title}</p>
                             </div>
                             
                             <div className="flex gap-4">
+                                {company.resume && (
                                 <Link 
                                     to={`/resume/${company.slug}`} 
                                     className="px-6 py-3 bg-gray-700 text-white rounded-md font-semibold hover:bg-gray-600 transition-colors"
                                 >
                                     View Resume
                                 </Link>
+                                )}
+                                {company.motivation && (
                                 <Link 
                                     to={`/motivation/${company.slug}`} 
                                     className="px-6 py-3 bg-gray-700 text-white rounded-md font-semibold hover:bg-gray-600 transition-colors"
                                 >
                                     View Motivation Letter
                                 </Link>
+                                )}
                             </div>
                         </div>
                     ))}
