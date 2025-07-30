@@ -21,6 +21,7 @@ export default function Resume() {
             education: "Ausbildung",
             experience: "Berufserfahrung",
             skillsAndAbilities: "Kenntnisse und Fähigkeiten",
+            certifications: "Zertifizierungen",
             languages: "Sprachen",
             programming: "Programming",
             mlAi: "ML & AI",
@@ -31,6 +32,7 @@ export default function Resume() {
             education: "Education",
             experience: "Professional Experience",
             skillsAndAbilities: "Skills and Abilities",
+            certifications: "Certifications",
             languages: "Languages",
             programming: "Programming",
             mlAi: "ML & AI",
@@ -151,38 +153,33 @@ export default function Resume() {
                     <div className="w-40 pl-2">
                         {/* <!-- Technical Skills --> */}
                         <section className="mb-4 border-b border-gray-300 pb-2">
-                            <h3 className="text-xl text-gray-800 mb-2 pb-1">{header_t.skillsAndAbilities}</h3>
-                            <div className="space-y-3 text-sm">
-                                <div>
-                                    <span className="text-gray-400 font-medium block text-xs">{header_t.programming}:</span>
-                                    <span className="text-gray-700 text-xs">{(jobData.resume?.skills || resume.skills).programmingLanguages}</span>
+                            <h3 className="text-lg text-gray-800 mb-2 leading-normal">{header_t.skillsAndAbilities}</h3>
+                            {(jobData.resume?.skills || resume.skills).map((skill, index) => (
+                                <div key={`skill-${index}`} className="mb-2">
+                                    <span className="text-gray-400 font-medium block text-xs">{skill.title}:</span>
+                                    <div className="text-gray-700 text-xs leading-normal">{skill.description}</div>
                                 </div>
-                                <div>
-                                    <span className="text-gray-400 font-medium block text-xs">{header_t.mlAi}:</span>
-                                    <span className="text-gray-700 text-xs">{(jobData.resume?.skills || resume.skills).machineLearning}</span>
-                                </div>
-                                <div>
-                                    <span className="text-gray-400 font-medium block text-xs">{header_t.systemIntegration}:</span>
-                                    <span className="text-gray-700 text-xs">{(jobData.resume?.skills || resume.skills).systemIntegration}</span>
-                                </div>
-                                <div>
-                                    <span className="text-gray-400 font-medium block text-xs">{header_t.projectLeadership}:</span>
-                                    <span className="text-gray-700 text-xs">{(jobData.resume?.skills || resume.skills).projectLeadership}</span>
-                                </div>
-                            </div>
+                            ))}
+                        </section>
+
+                        {/* <!-- Certifications --> */}
+                        <section className="mb-4 border-b border-gray-300 pb-2">
+                            <h3 className="text-lg text-gray-800 mb-2 leading-normal">{header_t.certifications}</h3>
+                            <ul className="list-disc list-outside text-gray-700 text-xs leading-normal ml-4">
+                                {(jobData.resume?.certifications || resume.certifications).map((certification, index) => (
+                                    <li key={`certification-${index}`} className="pl-1">{certification}</li>
+                                ))}
+                            </ul>
                         </section>
 
                         {/* <!-- Languages --> */}
                         <section className="mb-4">
-                            <h3 className="text-xl text-gray-800 mb-2 pb-1">{header_t.languages}</h3>
-                            <div className="text-sm space-y-1">
+                            <h3 className="text-lg text-gray-800 mb-2 leading-normal">{header_t.languages}</h3>
+                            <ul className="list-disc list-outside text-gray-700 text-xs leading-normal ml-4">
                                 {(jobData.resume?.languages || resume.languages).map((language, index) => (
-                                    <div key={`language-${index}`}>
-                                        <span className="text-gray-800 font-medium text-xs">{language.level} in {language.language}</span>
-                                        {language.note && <span className="text-gray-700 text-xs block">{language.note}</span>}
-                                    </div>
+                                    <li key={`language-${index}`} className="pl-1">{language.level} in {language.language}</li>
                                 ))}
-                            </div>
+                            </ul>
                         </section>
                     </div>
                 </div>

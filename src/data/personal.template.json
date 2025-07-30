@@ -48,12 +48,29 @@
         ]
       }
     ],
-    "skills": {
-      "programmingLanguages": "Python, JavaScript/TypeScript, SQL, Other Languages",
-      "frameworks": "React, Node.js, Django, Other Frameworks",
-      "tools": "Docker, Git, AWS, Other Tools",
-      "specializations": "Machine Learning, Data Science, Web Development, Other Areas"
-    },
+    "skills": [
+      {
+        "title": "Programming Languages",
+        "description": "Python, JavaScript/TypeScript, SQL, Other Languages"
+      },
+      {
+        "title": "Frameworks & Libraries",
+        "description": "React, Node.js, Django, Other Frameworks"
+      },
+      {
+        "title": "Tools & Technologies",
+        "description": "Docker, Git, AWS, Other Tools"
+      },
+      {
+        "title": "Specializations",
+        "description": "Machine Learning, Data Science, Web Development, Other Areas"
+      }
+    ],
+    "certifications": [
+      "Certification 1",
+      "Certification 2",
+      "Certification 3"
+    ],
     "languages": [
       {
         "language": "English",
@@ -61,8 +78,7 @@
       },
       {
         "language": "Other Language",
-        "level": "Proficient",
-        "note": "(spoken and written)"
+        "level": "Proficient"
       }
     ]
   }
