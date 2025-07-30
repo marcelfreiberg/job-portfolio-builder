@@ -115,9 +115,9 @@ export default function Resume() {
                                             <p>{education.period}</p>
                                         </div>
                                     </div>
-                                    <ul className="list-disc list-outside text-gray-700 text-sm leading-relaxed ml-4">
+                                    <ul className="list-disc list-outside text-gray-700 text-sm leading-relaxed ml-4 space-y-1">
                                         {education.description.map((description, descIndex) => (
-                                            <li key={`education-${index}-desc-${descIndex}`} className="pl-1 hyphens-auto">{description}</li>
+                                            <li key={`education-${index}-desc-${descIndex}`} className="pl-1 hyphens-auto leading-normal">{description}</li>
                                         ))}
                                     </ul>
                                 </div>
