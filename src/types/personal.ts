@@ -5,6 +5,7 @@ export interface PersonalData {
         phone: string;
         city: string;
         linkedin: string;
+        github: string;
     };
     resume: {
         education: Array<{

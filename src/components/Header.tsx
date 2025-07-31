@@ -2,7 +2,7 @@ import { PersonalData } from '../types/personal';
 import profilePhoto from '../assets/profile-photo-square.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 interface HeaderProps {
     personal: PersonalData['personal'];
@@ -20,26 +20,34 @@ export default function Header({ personal, title }: HeaderProps) {
                 />
 
                 {/* <!-- Text Content --> */}
-                <div className={`flex-1 mt-4 mx-3`}>
+                <div className={`flex-1 mt-2 mx-3`}>
                     <h1 className={`text-3xl text-white mb-1`}>{personal.name}</h1>
-                    <h2 className={`text-lg text-gray-400 mb-3`}>{title}</h2>
+                    <h2 className={`text-lg text-gray-400 mb-1`}>{title}</h2>
 
-                    <div className={`flex flex-wrap gap-3 text-xs text-gray-400`}>
-                        <div className="flex items-center gap-1">
-                            <FontAwesomeIcon icon={faEnvelope} />
-                            <span>{personal.email}</span>
+                    <div className={`text-xs text-gray-400 space-y-1.5`}>
+                        <div className="flex gap-5">
+                            <div className="flex items-center gap-1">
+                                <FontAwesomeIcon icon={faEnvelope} />
+                                <span>{personal.email}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <FontAwesomeIcon icon={faPhone} />
+                                <span>{personal.phone}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <FontAwesomeIcon icon={faMapMarkerAlt} />
+                                <span>{personal.city}</span>
+                            </div>
                         </div>
-                        <div className="flex items-center gap-1">
-                            <FontAwesomeIcon icon={faPhone} />
-                            <span>{personal.phone}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                            <FontAwesomeIcon icon={faMapMarkerAlt} />
-                            <span>{personal.city}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                            <FontAwesomeIcon icon={faLinkedin} />
-                            <span>{personal.linkedin}</span>
+                        <div className="flex gap-5">
+                            <div className="flex items-center gap-1">
+                                <FontAwesomeIcon icon={faLinkedin} />
+                                <span>{personal.linkedin}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <FontAwesomeIcon icon={faGithub} />
+                                <span>{personal.github}</span>
+                            </div>
                         </div>
                     </div>
                 </div>

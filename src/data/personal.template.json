@@ -4,7 +4,8 @@
     "email": "your.email@example.com",
     "phone": "+1 234 567 8900",
     "city": "Your City",
-    "linkedin": "https://www.linkedin.com/in/<your-linkedin-profile-url>"
+    "linkedin": "linkedin.com/in/<your-linkedin-profile-url>",
+    "github": "github.com/<your-github-username>"
   },
   "resume": {
     "education": [
