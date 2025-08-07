@@ -1,7 +1,7 @@
 import { PersonalData } from '../types/personal';
 import profilePhoto from '../assets/profile-photo-square.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faMapMarkerAlt, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 interface HeaderProps {
@@ -47,6 +47,10 @@ export default function Header({ personal, title }: HeaderProps) {
                             <div className="flex items-center gap-1">
                                 <FontAwesomeIcon icon={faGithub} />
                                 <span>{personal.github}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <FontAwesomeIcon icon={faGlobe} />
+                                <span>{personal.website}</span>
                             </div>
                         </div>
                     </div>

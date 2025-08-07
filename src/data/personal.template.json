@@ -5,7 +5,8 @@
     "phone": "+1 234 567 8900",
     "city": "Your City",
     "linkedin": "linkedin.com/in/<your-linkedin-profile-url>",
-    "github": "github.com/<your-github-username>"
+    "github": "github.com/<your-github-username>",
+    "website": "your-website.com"
   },
   "resume": {
     "education": [

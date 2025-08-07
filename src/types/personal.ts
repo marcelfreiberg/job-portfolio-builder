@@ -6,6 +6,7 @@ export interface PersonalData {
         city: string;
         linkedin: string;
         github: string;
+        website: string;
     };
     resume: {
         education: Array<{
